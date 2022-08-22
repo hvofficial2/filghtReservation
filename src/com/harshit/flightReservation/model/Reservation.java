@@ -4,6 +4,24 @@ public class Reservation extends AbstractModel{
     private Passenger passenger;
     private Flight flight;
     private long flightId;
+    private int noOfBags;
+    private boolean checkedIn;
+
+    public int getNoOfBags() {
+        return noOfBags;
+    }
+
+    public void setNoOfBags(int noOfBags) {
+        this.noOfBags = noOfBags;
+    }
+
+    public boolean isCheckedIn() {
+        return checkedIn;
+    }
+
+    public void setCheckedIn(boolean checkedIn) {
+        this.checkedIn = checkedIn;
+    }
 
     public Passenger getPassenger() {
         return passenger;
@@ -32,9 +50,11 @@ public class Reservation extends AbstractModel{
     @Override
     public String toString() {
         return "Reservation{" +
-                "p=" + passenger +
-                ", f=" + flight +
+                "passenger=" + passenger +
+                ", flight=" + flight +
                 ", flightId=" + flightId +
+                ", noOfBags=" + noOfBags +
+                ", checkedIn=" + checkedIn +
                 '}';
     }
 }

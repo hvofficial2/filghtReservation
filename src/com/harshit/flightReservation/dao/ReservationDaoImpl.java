@@ -32,12 +32,21 @@ public class ReservationDaoImpl implements ReservationDao{
         flights.put(f2.getId(),f2);
     }
 
+    @Override
     public Reservation bookFlight(Reservation reservation){
         Flight f = flights.get(reservation.getFlightId());
         reservation.setFlight(f);
         reservationId++;
         reservation.setId(reservationId);
         reservations.put(reservationId,reservation);
+        return reservation;
+    }
+
+    @Override
+    public Reservation checkIn(long reservationId,int noOfBags){
+        Reservation reservation = reservations.get(reservationId);
+        reservation.setNoOfBags(noOfBags);
+        reservation.setCheckedIn(true);
         return reservation;
     }
 }
